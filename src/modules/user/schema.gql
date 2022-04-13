@@ -1,0 +1,23 @@
+type Query {
+  users(userId: ID): [User!]!
+}
+
+type Mutation {
+  addUser(username: String!, contact: String!): UserResponse!
+  editUser(userId: ID!, username: String!): UserResponse!
+  deleteUser(userId: ID!): UserResponse!
+}
+
+##User type for all users returns userId, username, contact
+type User {
+  userId: ID!
+  username: String!
+  contact: String!
+}
+
+##Response users
+type UserResponse {
+  status: Int!
+  message: String!
+  data: User
+}
